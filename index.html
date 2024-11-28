@@ -8,9 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script>
         const baseURL = location.hostname.includes('github.io') ? '/bsdent' : '';
+        
+        // CSS 파일 동적 로드
+        const linkStyle = document.createElement('link');
+        linkStyle.rel = 'stylesheet';
+        linkStyle.href = `${baseURL}/templet/style.css`;
+        document.head.appendChild(linkStyle);
+
+        const linkHeader = document.createElement('link');
+        linkHeader.rel = 'stylesheet';
+        linkHeader.href = `${baseURL}/templet/header.css`;
+        document.head.appendChild(linkHeader);
     </script>
-    <link rel="stylesheet" href="${baseURL}/templet/style.css">
-    <link rel="stylesheet" href="${baseURL}/templet/header.css">
 </head>
 
 <body>
@@ -18,19 +27,28 @@
     <div id="header-component"></div>
 
     <script>
-        fetch(`${baseURL}/components/header.html`)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-component').innerHTML = data;
-            })
-            .catch(error => console.error('Error:', error));
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch(`${baseURL}/components/header.html`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-component').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('컴포넌트 로딩 에러:', error);
+                });
+        });
     </script>
 
     <script src="${baseURL}/templet/header.js"></script>
 
     <!-- 배너 섹션 -->
     <section class="banner-section">
-        <div class="banner" style="background-image: url('${baseURL}/images/main_banner.png');">
+        <div class="banner" id="main-banner">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
                 <p>Conservative Dentistry
@@ -44,6 +62,11 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // 배너 이미지 동적 설정
+        document.getElementById('main-banner').style.backgroundImage = `url('${baseURL}/images/main_banner.png')`;
+    </script>
 
     <!-- 정보 섹션 -->
     <section id="info-section" class="info-section">
