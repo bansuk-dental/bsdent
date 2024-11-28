@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bansuk Dental</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/templet/style.css">
-    <link rel="stylesheet" href="/templet/header.css">
+    <link rel="stylesheet" href="templet/style.css">
+    <link rel="stylesheet" href="templet/header.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <div id="header-component"></div>
 
     <script>
-        fetch('/components/header.html')
+        fetch('components/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-component').innerHTML = data;
@@ -25,11 +25,11 @@
             });
     </script>
 
-    <script src="/templet/header.js"></script>
+    <script src="templet/header.js"></script>
 
     <!-- 배너 섹션 -->
     <section class="banner-section">
-        <div class="banner" style="background-image: url('/images/main_banner.png');">
+        <div class="banner" style="background-image: url('images/main_banner.png');">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
                 <p>Conservative Dentistry
@@ -71,7 +71,7 @@
                 </p>
             </div>
             <div class="info-image">
-                <img src="/images/banner3.jpg" alt="Specialized Care Image">
+                <img src="images/banner3.jpg" alt="Specialized Care Image">
             </div>
         </div>
     </section>
@@ -182,7 +182,7 @@
     <div id="map-component"></div>
 
     <script>
-        fetch('/components/Map.html')
+        fetch('components/Map.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('map-component').innerHTML = data;
@@ -196,7 +196,7 @@
     <div id="about-component"></div>
 
     <script>
-        fetch('/components/About.html')
+        fetch('components/About.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('about-component').innerHTML = data;
@@ -210,7 +210,7 @@
     <div id="introduction-component"></div>
 
     <script>
-        fetch('/components/Introduction.html')
+        fetch('components/Introduction.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('introduction-component').innerHTML = data;
@@ -224,7 +224,7 @@
     <div id="seoul-component"></div>
 
     <script>
-        fetch('/components/Seoul.html')
+        fetch('components/Seoul.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('seoul-component').innerHTML = data;
@@ -239,7 +239,7 @@
     <div id="equipment-component"></div>
 
     <script>
-        fetch('/components/Equipment.html')
+        fetch('components/Equipment.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('equipment-component').innerHTML = data;
@@ -253,7 +253,7 @@
 
     <script>
         // Price 컴포넌트 로드 및 스크립트 실행
-        fetch('/components/Price.html')
+        fetch('components/Price.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('price-component').innerHTML = data;
@@ -300,7 +300,7 @@
         // 기존 스크립트들...
 
         // Schedule 컴포넌트 로드
-        fetch('/components/Schedule.html')
+        fetch('components/Schedule.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('schedule-component').innerHTML = data;
@@ -325,7 +325,7 @@
     <div id="footer-component"></div>
 
     <script>
-        fetch('/components/Footer.html')
+        fetch('components/Footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-component').innerHTML = data;
@@ -334,8 +334,8 @@
                 console.error('Error loading Footer component:', error);
             });
     </script>
-    <script src="/templet/myjs.js"></script>
-    <script src="/templet/main.js"></script>
+    <script src="templet/myjs.js"></script>
+    <script src="templet/main.js"></script>
 </body>
 
 </html>
