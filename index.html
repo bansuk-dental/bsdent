@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bansuk Dental</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./templet/style.css">
-    <link rel="stylesheet" href="./templet/header.css">
+    <script>
+        const baseURL = location.hostname.includes('github.io') ? '/bsdent' : '';
+        
+        // CSS 파일 동적 로드
+        const linkStyle = document.createElement('link');
+        linkStyle.rel = 'stylesheet';
+        linkStyle.href = `${baseURL}/templet/style.css`;
+        document.head.appendChild(linkStyle);
+
+        const linkHeader = document.createElement('link');
+        linkHeader.rel = 'stylesheet';
+        linkHeader.href = `${baseURL}/templet/header.css`;
+        document.head.appendChild(linkHeader);
+    </script>
 </head>
 
 <body>
@@ -15,21 +27,28 @@
     <div id="header-component"></div>
 
     <script>
-        fetch('components/Header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-component').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error loading Header component:', error);
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch(`${baseURL}/components/header.html`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-component').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('컴포넌트 로딩 에러:', error);
+                });
+        });
     </script>
 
-    <script src="./templet/header.js"></script>
+    <script src="${baseURL}/templet/header.js"></script>
 
     <!-- 배너 섹션 -->
     <section class="banner-section">
-        <div class="banner" style="background-image: url('./images/main_banner.png');">
+        <div class="banner" id="main-banner">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
                 <p>Conservative Dentistry
@@ -43,6 +62,11 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // 배너 이미지 동적 설정
+        document.getElementById('main-banner').style.backgroundImage = `url('${baseURL}/images/main_banner.png')`;
+    </script>
 
     <!-- 정보 섹션 -->
     <section id="info-section" class="info-section">
@@ -71,7 +95,7 @@
                 </p>
             </div>
             <div class="info-image">
-                <img src="./images/banner3.jpg" alt="Specialized Care Image">
+                <img src="${baseURL}/images/banner3.jpg" alt="Specialized Care Image">
             </div>
         </div>
     </section>
@@ -182,7 +206,7 @@
     <div id="map-component"></div>
 
     <script>
-        fetch('components/Map.html')
+        fetch(`${baseURL}/components/Map.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('map-component').innerHTML = data;
@@ -196,7 +220,7 @@
     <div id="about-component"></div>
 
     <script>
-        fetch('components/About.html')
+        fetch(`${baseURL}/components/About.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('about-component').innerHTML = data;
@@ -210,7 +234,7 @@
     <div id="introduction-component"></div>
 
     <script>
-        fetch('components/Introduction.html')
+        fetch(`${baseURL}/components/Introduction.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('introduction-component').innerHTML = data;
@@ -219,12 +243,13 @@
                 console.error('Error loading Introduction component:', error);
             });
     </script>
+
     <!-- 서울 섹션 -->
     <!-- Seoul 컴포넌트 -->
     <div id="seoul-component"></div>
 
     <script>
-        fetch('components/Seoul.html')
+        fetch(`${baseURL}/components/Seoul.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('seoul-component').innerHTML = data;
@@ -239,7 +264,7 @@
     <div id="equipment-component"></div>
 
     <script>
-        fetch('components/Equipment.html')
+        fetch(`${baseURL}/components/Equipment.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('equipment-component').innerHTML = data;
@@ -248,12 +273,13 @@
                 console.error('Error loading Equipment component:', error);
             });
     </script>
+
     <!-- 가격 컴포넌트-->
     <div id="price-component"></div>
 
     <script>
         // Price 컴포넌트 로드 및 스크립트 실행
-        fetch('components/Price.html')
+        fetch(`${baseURL}/components/Price.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('price-component').innerHTML = data;
@@ -293,14 +319,12 @@
                 console.error('Error loading Price component:', error);
             });
     </script>
+
     <!-- 스케줄 컴포넌트-->
     <div id="schedule-component"></div>
 
     <script>
-        // 기존 스크립트들...
-
-        // Schedule 컴포넌트 로드
-        fetch('components/Schedule.html')
+        fetch(`${baseURL}/components/Schedule.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('schedule-component').innerHTML = data;
@@ -309,6 +333,7 @@
                 console.error('Error loading Schedule component:', error);
             });
     </script>
+
     <!-- 리뷰 시작-->
     <section class="testimonials-section">
         <h2 class="section-title">Happy Patients</h2>
@@ -321,11 +346,12 @@
         </div>
     </section>
     <!-- 리뷰 끝-->
+
     <!-- 푸터 컴포넌트 -->
     <div id="footer-component"></div>
 
     <script>
-        fetch('components/Footer.html')
+        fetch(`${baseURL}/components/Footer.html`)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-component').innerHTML = data;
@@ -334,8 +360,9 @@
                 console.error('Error loading Footer component:', error);
             });
     </script>
-    <script src="./templet/myjs.js"></script>
-    <script src="./templet/main.js"></script>
+
+    <script src="${baseURL}/templet/myjs.js"></script>
+    <script src="${baseURL}/templet/main.js"></script>
 </body>
 
 </html>
