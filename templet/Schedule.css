@@ -1,0 +1,143 @@
+.schedule-section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.timeline-header h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.timeline-intro {
+    color: #596575;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.timeline-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.timeline-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.card-header h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.treatment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.treatment-list li {
+    margin-bottom: 20px;
+}
+
+.treatment-list li:last-child {
+    margin-bottom: 0;
+}
+
+.treatment-list strong {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.treatment-list p {
+    color: #596575;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.contact-info {
+    text-align: center;
+    background: #e3f2fd;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.contact-info p {
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.contact-methods {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.phone-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #3498db;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .schedule-section {
+        padding: 30px 20px;
+    }
+
+    .timeline-header h2 {
+        font-size: 24px;
+    }
+
+    .timeline-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}

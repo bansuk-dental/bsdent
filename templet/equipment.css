@@ -1,0 +1,123 @@
+.equipment-section {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.equipment-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.equipment-content h1 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.equipment-content h2 {
+    color: #34495e;
+    font-size: 22px;
+    margin: 30px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.equipment-content p {
+    color: #596575;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.equipment-image {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.equipment-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.equipment-image img:hover {
+    transform: scale(1.02);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .equipment-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .equipment-image {
+        width: 100%;
+    }
+
+    .equipment-image img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .equipment-section {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .equipment-content {
+        padding-right: 0;
+    }
+
+    .equipment-content h1 {
+        font-size: 28px;
+    }
+
+    .equipment-content h2 {
+        font-size: 20px;
+    }
+
+    .equipment-image {
+        flex: 0;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.equipment-content h2,
+.equipment-content p {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 스크롤바 커스터마이징 */
+.equipment-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.equipment-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.equipment-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.equipment-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
