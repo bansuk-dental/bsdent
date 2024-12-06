@@ -31,8 +31,8 @@
         /* 오버레이와 텍스트 배치를 위한 설정 */
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        text-align: left;
+        justify-content: center;
+        text-align: center;
         padding-left: 50px;
         border-bottom-right-radius: 250px;
         overflow: hidden;
@@ -60,6 +60,7 @@
         padding: 20px;
         position: relative;
         z-index: 2;
+        text-align: center;
         /* 오버레이 위로 배치 */
     }
 
@@ -75,6 +76,9 @@
         font-size: 18px;
         margin-top: 10px;
         line-height: 1.6;
+    }
+    #banner-text-p{
+        font-size: 8px;
     }
 
     /* 버튼 컨테이너 */
@@ -103,29 +107,95 @@
         /* 호버 시 확대 효과 */
     }
 
-
     .info-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding: 50px;
         margin: auto 100px;
     }
 
-    .info-text {
-        width: 80vh;
-        /* 가로 너비를 80vh로 설정 */
-        padding-right: 30px;
+    .intro-section {
+        text-align: center;
+        margin-bottom: 50px;
+        background: linear-gradient(to right, #f8f9fa, #ffffff);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        /* 추가 */
+        max-width: 1200px;
+        /* 추가 */
         margin: 0 auto;
+        /* 수정 */
+    }
+
+
+    .intro-header h2 {
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 15px;
+        display: inline-block;
+    }
+
+    .info-subtitle {
+        font-size: 1.2em;
+        color: #596575;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    /* 기존 info-text 스타일 수정 */
+    .info-text {
+        margin: 40px auto;
         /* 중앙 정렬 */
+        max-width: 1000px;
+        /* 최대 너비 제한 */
+        padding: 0 20px;
+        /* 좌우 여백 */
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+    }
+
+    .info-text h04 {
+        display: block;
+        font-size: 24px;
+        color: #2c3e50;
+        margin: 30px 0 15px;
+        font-weight: 600;
+    }
+
+    .info-text p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #596575;
+        margin-bottom: 25px;
+    }
+
+    .info-text hr {
+        border: none;
+        border-top: 2px solid #e9ecef;
+        margin: 30px 0;
+        width: 100%;
     }
 
     .info-image {
-        width: 40%;
+        width: 100%;
+        /* 수정 */
+        max-width: 1000px;
+        /* 수정 */
+        margin: 30px auto 0;
+        /* 수정 */
     }
 
     .info-image img {
         width: 100%;
+        height: auto;
+        /* 추가 */
+        object-fit: cover;
+        /* 추가 */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-bottom-right-radius: 150px;
@@ -444,6 +514,26 @@
             width: 1000px;
             /* 카드 컨테이너 너비 조정 */
         }
+
+        .intro-section {
+            width: 90%;
+            /* 추가 */
+            padding: 20px;
+            /* 추가 */
+        }
+
+        .info-image {
+            max-width: 90%;
+            /* 수정 */
+        }
+
+        .info-text {
+            max-width: 90%;
+        }
+
+        .info-text h04 {
+            font-size: 22px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -480,6 +570,38 @@
         .testimonials-container {
             width: 100%;
             /* 카드 컨테이너 너비 조정 */
+        }
+
+        .intro-section {
+            width: 95%;
+            /* 수정 */
+            padding: 15px;
+            /* 수정 */
+        }
+
+        .info-image {
+            width: 95%;
+            /* 수정 */
+            max-width: 100%;
+            /* 수정 */
+        }
+
+        .info-image img {
+            border-bottom-right-radius: 75px;
+            /* 수정 */
+        }
+
+        .info-text {
+            max-width: 95%;
+            padding: 0 15px;
+        }
+
+        .info-text h04 {
+            font-size: 20px;
+        }
+
+        .info-text p {
+            font-size: 15px;
         }
     }
 
@@ -520,19 +642,23 @@
 
         .info-text {
             width: 100%;
-            /* 모바일 화면에서 너비 조정 */
-            padding-right: 10px;
-            /* 패딩 조정 */
+            padding: 0 10px;
+        }
+
+        .info-text h04 {
+            font-size: 18px;
+        }
+
+        .info-text p {
+            font-size: 14px;
         }
 
         .info-image {
-            width: 80%;
-            /* 모바일 화면에서 너비 조정 */
+            width: 100%;
         }
 
         .info-image img {
-            border-bottom-right-radius: 5%;
-            /* 모바일 화면에서 비율로 조정 */
+            border-bottom-right-radius: 45px;
         }
 
         /* 콘텐츠 카드 */
@@ -752,7 +878,7 @@
 
     .equipment-image img {
         width: 100%;
-        height: 300px;
+        height: 250px;
         object-fit: cover;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -1002,8 +1128,8 @@
     }
 
     .logo img {
-        height: 100px;
-        width: auto;
+        height: 130px;
+        width: 300px;
         transition: height 0.3s ease;
     }
 
@@ -2127,7 +2253,8 @@
     .mobile-menu-popup {
         display: none;
         position: fixed;
-        top: 80px;  /* 헤더 높이에 맞춰 조정 */
+        top: 80px;
+        /* 헤더 높이에 맞춰 조정 */
         left: 0;
         width: 100%;
         height: calc(100vh - 80px);
@@ -2169,7 +2296,7 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="/">
-                    <a href="#header"><img src="./images/emblem.png" alt="Bansuk Dental Logo"></a>
+                    <a href="#header"><img src="./images/logo1.png" alt="Bansuk Dental Logo"></a>
                 </a>
             </div>
             <div class="nav-links">
@@ -2205,13 +2332,16 @@
         <div class="banner" style="background-image: url('.//images/main_banner.png');">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
-                <p>Conservative Dentistry
-                    Endodontics
-                    Advanced General Dentistry
+                <p>Conservative Dentistry</p>
+                <p>Endodontics</p>
+                <p>Advanced General Dentistry</p>
+                <p id="banner-text-p">Bansuk Dental Clinic, located in the heart of Seoul, offers trusted care from
+                    specialists and English-friendly services for your dental needs.
+                </p>
                 </p>
                 <div class="banner-buttons">
-                    <a href="#" class="banner-button">PATIENT REGISTRATION FORM</a>
-                    <a href="#" class="banner-button">REFERRING DOCTOR FORM</a>
+                    <a href="#" class="banner-button">reservation</a>
+                    <a href="#" class="banner-button">contact us</a>
                 </div>
             </div>
         </div>
@@ -2220,15 +2350,30 @@
     <!-- 정보 섹션 -->
     <section id="info-section" class="info-section">
         <div class="info-content">
-            <div class="info-text">
+            <!-- <div class="info-header">
                 <h2>Expertise in Dental Preservation</h2>
-                <p>At Bansuk Dental Restoration Clinic, we specialize in preserving and restoring your natural teeth,
+                <p class="info-subtitle">At Bansuk Dental Restoration Clinic, we specialize in preserving and restoring your natural teeth,
                     ensuring long-term dental health through advanced treatments and a patient-centered approach.
                 </p>
+            </div>
+            <div class="info-image">
+                <img src="./images/KakaoTalk_20241124_165550305_08.jpg" alt="Specialized Care Image">
+            </div> -->
+            <div class="intro-section">
+                <h2>Expertise in Dental Preservation</h2>
+                <p class="info-subtitle">At Bansuk Dental Restoration Clinic, we specialize in preserving and restoring
+                    your natural teeth,
+                    ensuring long-term dental health through advanced treatments and a patient-centered approach.
+                </p>
+                <div class="info-image">
+                    <img src="./images/KakaoTalk_20241124_165550305_08.jpg" alt="Specialized Care Image">
+                </div>
+            </div>
+            <div class="info-text">
                 <hr>
                 <h04>Patient-Centered Care</h04>
                 <p>"We believe in a personalized approach to dentistry, focusing on each patient's unique needs and
-                    comfort. Our team is dedicated to creating a safe, comfortable, and trusted environment.”
+                    comfort. Our team is dedicated to creating a safe, comfortable, and trusted environment."
                 </p>
                 <h04>Advanced Technology for Precise Care</h04>
                 <p>"Our clinic integrates cutting-edge dental technology, allowing for precise diagnosis and minimally
@@ -2242,9 +2387,6 @@
                 <p>"We view oral health as a fundamental part of overall well-being. Our holistic approach considers the
                     broader aspects of health, ensuring that each treatment supports your long-term wellness."
                 </p>
-            </div>
-            <div class="info-image">
-                <img src="./images/KakaoTalk_20241124_165550305_08.jpg" alt="Specialized Care Image">
             </div>
         </div>
     </section>
@@ -2354,23 +2496,28 @@
     <!-- 맵 컴프넌트-->
     <section id="location-section" class="location-section">
         <div class="location-container">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.4573489076297!2d126.97877469999999!3d37.5678469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2eda4e38d1f%3A0x8d2dd2b2c89e87a7!2z7ISc7Jq47Yq567OE7IucIOykkeq1rCDrrLTqtZDroZwgMTk!5e0!3m2!1sko!2skr!4v1732339798930!5m2!1sko!2skr"
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
             <div class="location-text">
-                <h2>Find Us: Conveniently Located in Central Seoul</h2>
+                <h2>Bansuk Dental Clinic</h2>
                 <p class="location-desc">Bansuk Dental Restoration Clinic is located in the heart of Seoul, making it
                     easily accessible for both residents and visitors.</p>
 
                 <div class="location-info">
                     <h3>Address</h3>
-                    <p class="address">19, Mugyo-ro, Jung-gu, Seoul, Republic of Korea</p>
+                    <p class="address">19, Mugyo-ro, Jung-gu, Seoul, Republic of Korea (4F)</p>
                 </div>
 
                 <div class="directions-info">
                     <h3>How to Get Here</h3>
                     <ul>
-                        <li><strong>By Subway:</strong> Take Line 1 or Line 2 and get off at City Hall Station, Exit 3.
+                        <li><strong>By Subway:</strong> Take Line 1 or Line 2 and get off at City Hall Station, Exit 4.
                             The clinic is a short 5-minute walk from the exit.</li>
-                        <li><strong>By Bus:</strong> Use the Mugyo-ro Bus Stop, served by multiple routes, and the
-                            clinic is just a few steps away.</li>
                         <li><strong>By Car:</strong> Parking is available at The Exchange Seoul building, where our
                             clinic is located</li>
                     </ul>
@@ -2389,19 +2536,12 @@
                         to guide you!</p>
                 </div>
             </div>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.4573489076297!2d126.97877469999999!3d37.5678469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2eda4e38d1f%3A0x8d2dd2b2c89e87a7!2z7ISc7Jq47Yq567OE7IucIOykkeq1rCDrrLTqtZDroZwgMTk!5e0!3m2!1sko!2skr!4v1732339798930!5m2!1sko!2skr"
-                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
         </div>
     </section>
 
     <!-- About 컴포넌트 -->
     <section id="about-section" class="about-treatment-section">
-        <h2>ABOUT BANSUK DENTAL</h2>
+        <h2>SERVICE</h2>
         <div class="treatment-grid">
             <!-- 첫 번째 줄 -->
             <div class="treatment-card">
@@ -2471,13 +2611,13 @@
     <section id="Introduction-section" class="intro-doctor-section">
         <div class="intro-doctor-content">
             <div class="intro-doctor-text">
-                <h2>👨‍⚕️ Dr. Kim Bansuk | Specialist in Conservative Dentistry</h2>
+                <h2>Dr. Kim Bansuk | Specialist in Conservative Dentistry</h2>
                 <p>Dr. Kim Bansuk is a highly skilled dental specialist with extensive experience in preserving natural
                     teeth and restoring oral function. Combining advanced techniques with a patient-centered approach,
                     Dr. Kim ensures exceptional results in both aesthetics and functionality.
                 </p>
                 <hr>
-                <h3>💡 Expertise Areas:
+                <h3>Expertise Areas:
                 </h3>
                 <p>Root Canal Treatment (Endodontics)</p>
                 <p>Aesthetic Restorations </p>
@@ -2488,19 +2628,16 @@
                 <p>"Our clinic integrates cutting-edge dental technology, allowing for precise diagnosis and minimally
                     invasive treatment, ensuring the highest standard of care."
                 </p>
-                <h3>🌏 As an English-speaking dentist, Dr. Kim provides clear and compassionate care to both local and
+                <h3>As an English-speaking dentist, Dr. Kim provides clear and compassionate care to both local and
                     international patients. His expertise in implants and bone grafting allows him to restore even the
                     most complex cases, ensuring patients regain full dental function with confidence. </h3>
-                <p>✨ Whether you need restorative, aesthetic, or implant-based care, Dr. Kim is dedicated to delivering
+                <p>Whether you need restorative, aesthetic, or implant-based care, Dr. Kim is dedicated to delivering
                     professional and comfortable treatment tailored to your needs.
                     "
                 </p>
-                <h3>📍 Visit Bansuk Dental Clinic in the heart of Seoul to meet Dr. Kim and experience world-class
-                    dental care.
-                </h3>
                 <h2>Academic Background and Career Highlights of Dr. Kim Bansuk</h2>
 
-                <h2>🎓 Academic Background</h2>
+                <h2>Academic Background</h2>
                 <p>DDS (Doctor of Dental Surgery) – Catholic University of Korea School of Medicine</p>
                 <p>Master's Degree in Restorative and Prosthetic Dentistry – Catholic University Graduate School of
                     Dentistry</p>
@@ -2508,7 +2645,7 @@
                     Mary's Hospital</p>
                 <p>Advanced Implant Training – Completed Regular Course at Osstem Implant</p>
 
-                <h2>👨‍⚕️ Career Highlights</h2>
+                <h2>Career Highlights</h2>
                 <p>Director of Bansuk Dental Clinic, Seoul, South Korea</p>
                 <p>Served as a dental officer in the Republic of Korea Army, gaining diverse clinical experience and
                     dedicating service to the nation</p>
@@ -2517,9 +2654,7 @@
                     and restorative dentistry</p>
                 <p>International Member of the American Association of Endodontists (AAE), reflecting global recognition
                     of his expertise in root canal treatment and dental preservation</p>
-                <p>Expert in advanced procedures, including root canal treatment, aesthetic restorations, and implant
-                    placement</p>
-                <p>Member of [Other Professional Dental Associations, e.g., Korean Academy of Conservative Dentistry,
+                <p>Member of [Other Professional Dental Associations, e.g., Korean Academy of Endodontics,
                     Korean Dental Association, etc.]</p>
 
             </div>
@@ -2577,6 +2712,7 @@
             <img src="./images/KakaoTalk_20241124_165550305_19.jpg" alt="placeholder">
             <img src="./images/KakaoTalk_20241124_165550305_20.jpg" alt="placeholder">
             <img src="./images/KakaoTalk_20241124_165550305_22.jpg" alt="placeholder">
+            <img src="./images/KakaoTalk_20241124_165550305_02.jpg" alt="placeholder">
         </div>
     </section>
 
@@ -3055,8 +3191,7 @@
             <div class="footer-section footer-social">
                 <h3>Stay Connected</h3>
                 <div class="social-links">
-                    <a href="https://map.naver.com/p/search/%EB%B0%98%EC%84%9D%EC%B9%98%EA%B3%BC/place/1351072876?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp"
-                        target="_blank" class="social-link naver">Naver</a>
+                    <a href="https://naver.me/FYaxFhJV" target="_blank" class="social-link naver">Naver</a>
                     <a href="https://www.instagram.com/bansuk_dental/" target="_blank"
                         class="social-link instagram">Instagram</a>
                     <a href="https://www.google.co.kr/maps/place/%EB%B0%98%EC%84%9D%EC%B9%98%EA%B3%BC%EB%B3%B4%EC%A1%B4%EA%B3%BC%EC%B9%98%EA%B3%BC%EC%9D%98%EC%9B%90/data=!4m10!1m2!2m1!1z67CY7ISd7LmY6rO8!3m6!1s0x357ca35c0c6ce72b:0x53371b1b0e85fa2a!8m2!3d37.5676504!4d126.9790597!15sCgzrsJjshJ3suZjqs7ySAQ1kZW50YWxfY2xpbmlj4AEA!16s%2Fg%2F11s9d7f8gy?hl=ko&entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D"
@@ -3096,10 +3231,10 @@
                 const mobileMenuPopup = document.querySelector('.mobile-menu-popup');
 
                 if (mobileMenuBtn && mobileMenuPopup) {
-                    mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenuBtn.addEventListener('click', function () {
                         this.classList.toggle('active');
                         mobileMenuPopup.classList.toggle('active');
-                        
+
                         // 메뉴 열린 상태에서 스크롤 방지
                         if (mobileMenuPopup.classList.contains('active')) {
                             document.body.style.overflow = 'hidden';
@@ -3110,7 +3245,7 @@
 
                     // 메뉴 항목 클릭시 팝업 닫기
                     mobileMenuPopup.querySelectorAll('a').forEach(link => {
-                        link.addEventListener('click', function() {
+                        link.addEventListener('click', function () {
                             mobileMenuBtn.classList.remove('active');
                             mobileMenuPopup.classList.remove('active');
                             document.body.style.overflow = 'auto';
