@@ -827,16 +827,15 @@
         .mobile-menu-popup.active {
             display: flex;
             /* 기존: width:100%; height:calc(100vh - 50px); → 원하는 만큼 축소 */
-            width: 80%;
+            width: 70%;
             /* 폭을 80% 정도로 줄임 (원하시는 수치로 변경) */
-            left: 10%;
+            left: 15%;
             /* 화면 좌/우 여백 10%씩 (80% + 10% + 10% = 100%) */
             top: 60px;
             /* 헤더가 50px이었으니 살짝 더 아래로(예: 60px) */
-            height: calc(100vh - 60px);
+            height: calc(100vh - 400px);
             /* 남은 높이만큼 세로 스크롤 가능; 더 줄이고 싶으면 고정값 400px 등 사용 가능 */
         }
-
         /* 메뉴 항목 스타일 */
         .mobile-menu-popup a {
             text-decoration: none;
