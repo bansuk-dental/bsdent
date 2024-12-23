@@ -9,12 +9,28 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+    /* 🌟 기본 설정 */
+    html,
     body {
-        font-family: 'Roboto', sans-serif;
         margin: 0;
+        /* 외부 여백 제거 */
         padding: 0;
-        background-color: #ffffff;
+        /* 내부 여백 제거 */
+        overflow-x: hidden;
+        /* 가로 스크롤 제거 */
+        width: 100%;
+        /* 전체 너비를 100%로 설정 */
+        box-sizing: border-box;
+        /* 박스 모델 설정 */
     }
+
+    /* 🌟 모든 요소에 box-sizing 적용 */
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
 
 
     /* 배너 섹션 스타일 */
@@ -107,6 +123,42 @@
         background-color: #ff4500;
         transform: scale(1.05);
         /* 호버 시 확대 효과 */
+    }
+
+    /* 모바일 메뉴 버튼 스타일 */
+    .mobile-menu-btn {
+        display: none;
+        /* 기본적으로는 숨김 */
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+        display: block;
+        width: 15px;
+        height: 2px;
+        background-color: #333;
+        transition: all 0.3s ease;
+    }
+
+    /* 모바일 메뉴 스타일 */
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 50px;
+        /* 헤더 높이만큼 아래로 */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-nav.active {
+        display: block;
     }
 
     .info-content {
@@ -332,13 +384,6 @@
         margin: 0;
     }
 
-    /* 🌟 반응형 디자인 */
-    @media (max-width: 1200px) {
-        .content1-section {
-            width: 85%;
-        }
-    }
-
     @media (max-width: 768px) {
         .content1-section {
             width: 95%;
@@ -359,6 +404,15 @@
 
         .card1 {
             padding: 20px;
+        }
+
+        .navbar {
+            height: 60px;
+            padding: 0 10px;
+        }
+
+        .logo img {
+            width: 180px;
         }
     }
 
@@ -580,53 +634,6 @@
         color: white;
     }
 
-    /* .. 기존 CSS 코드 .. */
-
-    /* 반응형 디자인을 위한 미디어 쿼리 */
-    @media (max-width: 1200px) {
-
-        .header-content,
-        .info-content,
-        .footer-content {
-            margin: auto 50px;
-            /* 여백 조정 */
-        }
-
-        .banner {
-            margin-right: 5%;
-            /* 배너 여백 조정 */
-        }
-
-        .content-cards {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            /* 카드 크기 조정 */
-        }
-
-        .testimonials-container {
-            width: 1000px;
-            /* 카드 컨테이너 너비 조정 */
-        }
-
-        .intro-section {
-            width: 90%;
-            /* 추가 */
-            padding: 20px;
-            /* 추가 */
-        }
-
-        .info-image {
-            max-width: 90%;
-            /* 수정 */
-        }
-
-        .info-text {
-            max-width: 90%;
-        }
-
-        .info-text h04 {
-            font-size: 22px;
-        }
-    }
 
     @media (max-width: 768px) {
 
@@ -698,38 +705,202 @@
     }
 
     @media (max-width: 480px) {
+        body {
+            overflow-x: hidden;
+            /* 가로 스크롤 방지 */
+        }
 
-        /* 헤더 */
-        .header-content {
-            flex-direction: column;
+        .container {
+            max-width: 100%;
+            /* 컨테이너가 화면 너비를 초과하지 않도록 */
+        }
+
+        img {
+            max-width: 100%;
+            /* 이미지가 부모 컨테이너를 넘지 않도록 */
+            height: auto;
+            /* 이미지 비율 유지 */
+        }
+
+
+        /* 🌟 헤더 스타일 */
+        .header {
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* 🌟 네비게이션 바 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 0 10px;
+            height: 50px;
+            padding: 0 15px;
+        }
+
+        /* 🌟 로고 섹션 */
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .logo img {
-            width: 60px;
-            height: 60px;
+            max-width: 360px;
+            /* 모바일 환경에 맞는 크기 */
+            height: auto;
+            transition: width 0.3s ease;
         }
 
-        .header-title,
-        .logo-text {
-            font-size: 18px;
+        /* 🌟 스크롤 시 로고 축소 */
+        .header.scrolled .logo img {
+            width: 100px;
         }
+
+        /* 🌟 모바일 메뉴 버튼 기본 설정 */
+        .mobile-menu-btn {
+            display: flex;
+            /* 항상 표시 */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* 🌟 햄버거 메뉴 스타일 */
+        .mobile-menu-btn span {
+            display: block;
+            width: 15px;
+            height: 2px;
+            background-color: #333;
+            margin: 1px 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-right: 20px;
+        }
+
+        /* 예시 1: translateY(8px) & (-8px) */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+
+        /* 🌟 모바일 메뉴 팝업 스타일 */
+        .mobile-menu-popup {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 50px);
+            background-color: #fff;
+            z-index: 1000;
+            overflow-y: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-popup.active {
+            display: flex;
+            /* 기존: width:100%; height:calc(100vh - 50px); → 원하는 만큼 축소 */
+            width: 80%;
+            /* 폭을 80% 정도로 줄임 (원하시는 수치로 변경) */
+            left: 10%;
+            /* 화면 좌/우 여백 10%씩 (80% + 10% + 10% = 100%) */
+            top: 60px;
+            /* 헤더가 50px이었으니 살짝 더 아래로(예: 60px) */
+            height: calc(100vh - 60px);
+            /* 남은 높이만큼 세로 스크롤 가능; 더 줄이고 싶으면 고정값 400px 등 사용 가능 */
+        }
+
+        /* 메뉴 항목 스타일 */
+        .mobile-menu-popup a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            /* 원하는 글자 크기로 설정 */
+            padding: 12px 0;
+            /* 줄 간격 살짝 줄이거나 늘리기 */
+        }
+
+        /* 🌟 네비게이션 링크 (모바일) */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 50px);
+            /* 화면 아래까지 채우기 */
+            z-index: 999;
+            overflow-y: auto;
+            /* 스크롤 가능 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-links a:last-child {
+            border-bottom: none;
+        }
+
+
 
         /* 배너 */
         .banner {
-            height: 40vh;
-            padding-left: 10px;
+            height: 50vh;
             margin-right: 0;
-            border-bottom-right-radius: 45%;
+            /* border-bottom-right-radius: 45%; */
         }
 
         .banner-text h1 {
-            font-size: 24px;
+            font-size: 18px;
         }
 
         .banner-text p {
-            font-size: 12px;
+            font-size: 8px;
         }
 
         .info-text {
@@ -827,6 +998,19 @@
         .footer-bottom {
             font-size: 14px;
         }
+
+        .price-title {
+            font-size: 28px;
+        }
+
+        .popup-button {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .price-category {
+            padding: 15px;
+        }
     }
 
     /* .. 기존 CSS 코드 .. */
@@ -884,12 +1068,7 @@
         font-size: 16px;
     }
 
-    /* 반응형 디자인 */
-    @media (max-width: 1024px) {
-        .treatment-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+
 
     @media (max-width: 768px) {
         .about-treatment-section {
@@ -988,19 +1167,7 @@
         transform: scale(1.02);
     }
 
-    @media (max-width: 1024px) {
-        .content-wrapper {
-            flex-direction: column;
-        }
 
-        .equipment-content {
-            padding-right: 0;
-        }
-
-        .equipment-image {
-            width: 100%;
-        }
-    }
 
     @media (max-width: 768px) {
         .equipment-section {
@@ -1193,42 +1360,31 @@
         align-items: center;
         max-width: 1400px;
         margin: 0 auto;
+        padding: 0 20px;
         height: 100px;
-        /* 네비게이션 바의 높이 고정 */
         position: relative;
-        overflow: hidden;
-        /* 로고가 네비게이션 바를 벗어나지 않도록 */
     }
 
     /* 로고 스타일 */
     .logo {
-        flex: 0 0 auto;
         display: flex;
         align-items: center;
-        height: 100%;
-        /* 컨테이너 높이에 맞춤 */
     }
 
     .logo img {
-        width: 400px;
-        /* 원하는 너비로 조정 */
+        width: 300px;
         height: auto;
-        /* 비율 유지 */
-        max-height: none;
-        /* 높이 제한 제거 */
         object-fit: contain;
-        /* 이미지 비율 유지 */
+        transition: all 0.3s ease;
     }
 
     /* 스크롤 시 로고 크기 변경 */
     .header.scrolled .navbar {
         height: 70px;
-        /* 스크롤 시 네비게이션 바 높이 */
     }
 
     .header.scrolled .logo img {
-        width: 300px;
-        /* 스크롤 시 로고 너비 */
+        width: 250px;
     }
 
     /* 네비게이션 링크 */
@@ -1273,6 +1429,53 @@
         height: 2px;
         background-color: #007bff;
         transition: width 0.3s ease;
+    }
+
+
+
+    @media (max-width: 768px) {
+        body {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            left: 0;
+            transform: none;
+            max-width: 100%;
+        }
+
+        .navbar {
+            padding: 10px 20px;
+            height: 60px;
+            width: 100%;
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo img {
+            width: 180px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: none;
+            /* 기존 네비게이션 숨기기 */
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            /* 햄버거 메뉴 보이기 */
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 
     .nav-links a:hover::after {
@@ -1484,13 +1687,7 @@
         transform: scale(1.02);
     }
 
-    /* 반응형 디자인 */
-    @media (max-width: 1024px) {
-        .intro-doctor-content {
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-    }
+
 
     @media (max-width: 768px) {
         .intro-doctor-section {
@@ -1878,20 +2075,7 @@
         }
     }
 
-    @media (max-width: 480px) {
-        .price-title {
-            font-size: 28px;
-        }
 
-        .popup-button {
-            width: 100%;
-            padding: 15px;
-        }
-
-        .price-category {
-            padding: 15px;
-        }
-    }
 
     /* 애니메이션 효과 */
     @keyframes fadeIn {
@@ -2180,13 +2364,7 @@
         transform: scale(1.02);
     }
 
-    /* 반응형 디자인 */
-    @media (max-width: 1024px) {
-        .seoul-section {
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-    }
+
 
     @media (max-width: 768px) {
         .seoul-section {
@@ -2330,6 +2508,15 @@
         gap: 20px;
     }
 
+    .mobile-menu-popup ul {
+        list-style: none;
+        /* 불릿 제거 */
+        padding: 0;
+        /* 기본 여백 제거 */
+        margin: 0;
+    }
+
+
     .mobile-menu-popup span {
         font-size: 1.2rem;
         padding: 10px;
@@ -2341,7 +2528,7 @@
     }
 
     /* 데스크톱에서는 숨기기 */
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 768px) {
         .mobile-menu-popup {
             display: none !important;
         }
@@ -2412,42 +2599,50 @@
 <body>
     <!-- Header 컴포넌트 -->
     <!-- 헤더 섹션 -->
+    <!-- 🌟 Header 컴포넌트 -->
     <header id="header" class="header">
         <nav class="navbar">
+            <!-- 🌟 로고 섹션 -->
             <div class="logo">
-                <a href="/">
-                    <a href="#header"><img src="./images/head_logo.png" alt="Bansuk Dental Logo"></a>
+                <a href="#header">
+                    <img src="./images/head_logo.png" alt="Bansuk Dental Logo">
                 </a>
             </div>
+
+            <!-- 🌟 네비게이션 링크 -->
             <div class="nav-links">
                 <ul>
                     <li><a href="#content-section">Introduction</a></li>
                     <li><a href="#Introduction-section">Director</a></li>
                     <li><a href="#location-section">Location</a></li>
                     <li><a href="#about-section">Services</a></li>
-                    <li><a href="#price-section">Price & Schedule </a></li>
+                    <li><a href="#price-section">Price & Schedule</a></li>
                 </ul>
             </div>
+
+            <!-- 🌟 모바일 메뉴 버튼 -->
             <div class="mobile-menu-btn">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <!-- 모바일 메뉴 팝업 -->
+
+            <!-- 🌟 모바일 메뉴 팝업 -->
             <div class="mobile-menu-popup">
-                <span><a href="#about-section">Dental Introduction</a></span>
-                <span><a href="#Introduction-section">Director Introduction</a></span>
-                <span><a href="#price-section">Price</a></span>
-                <span><a href="#equipment-section">Treatment</a></span>
-                <span><a href="#process-section">Schedule</a></span>
-                <span><a href="#location-section">Location</a></span>
+                <ul>
+                    <li><a href="#content-section">Introduction</a></li>
+                    <li><a href="#Introduction-section">Director</a></li>
+                    <li><a href="#location-section">Location</a></li>
+                    <li><a href="#about-section">Services</a></li>
+                    <li><a href="#price-section">Price & Schedule</a></li>
+                </ul>
             </div>
         </nav>
     </header>
 
     <!-- 배너 섹션 -->
     <section class="banner-section">
-        <div class="banner" style="background-image: url('.//images/main.jpg');">
+        <div class="banner" style="background-image: url('./images/main.jpg');">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
                 <p>Conservative Dentistry</p>
