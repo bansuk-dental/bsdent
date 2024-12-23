@@ -508,7 +508,7 @@
         gap: 20px;
         flex-wrap: nowrap;
         overflow: hidden;
-        width: 1200px;
+        width: 1000px;
         /* 고정된 가로 영역 */
         justify-content: center;
     }
@@ -520,7 +520,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         width: 300px;
         /* 카드 너비 */
-        height: 350px;
+        height: 450px;
         padding: 20px;
         text-align: left;
         flex-shrink: 0;
@@ -970,6 +970,17 @@
             /* 제목 크기 조정 */
             display: block;
             margin-bottom: 10px;
+        }
+
+        .content-wrapper {
+            flex-direction: column;
+            /* 수직 쌓임 */
+        }
+
+        .equipment-content,
+        .equipment-image {
+            width: 100%;
+            /* 혹은 flex: 1; 로 해도 됨 */
         }
 
         /* 리뷰 섹션 */
@@ -3704,9 +3715,9 @@
             function initializeReviews() {
                 // 데이터 배열
                 const testimonials = [
-                    { name: "John D.", rating: "★★★★★", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti explicabo distinctio iure facere perspiciatis aliquam, impedit veritatis quia exercitationem quo alias! Accusantium nemo alias tempore quasi minima voluptatem beatae reiciendis eaque corporis? Ad, voluptatem! Maiores quaerat reiciendis, dicta deserunt magnam explicabo sapiente quae dolores repudiandae nam, tempora blanditiis? Doloribus, quos!", logo: "./images/google_logo.png" },
-                    { name: "Jane S.", rating: "★★★★★", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, dolorem. Libero magni soluta distinctio ipsam doloribus laboriosam, nam vel officia, esse eos assumenda, repudiandae reprehenderit. Asperiores quis quod consectetur recusandae harum iure nam provident cumque aperiam dolores, optio inventore ipsa cupiditate numquam ducimus necessitatibus impedit. Placeat commodi incidunt sunt maiores.", logo: "./images/google_logo.png" },
-                    { name: "Emily R.", rating: "★★★★★", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate sed ipsum dolores officiis adipisci vitae est quisquam quia iusto deserunt nobis, ullam odit quas voluptates sint ea alias repudiandae libero.", logo: "./images/google_logo.png" },
+                    { name: "peter kang.", rating: "★★★★★", text: "I've visited over 10 dental clinics in Seoul, but this place is truly the best. The staff provide incredibly friendly and detailed explanations, and what amazed me the most was the completely painless anesthesia process. The facilities are also impeccably clean. For anyone looking for a dental clinic, I highly recommend this place without hesitation.", logo: "./images/google_logo.png" },
+                    { name: "Ryan Kyungsoo Shim.", rating: "★★★★★", text: "Located in CBD area, easy to access.had my left upper and lower wisdom teeth taken out a week ago. Complications and possible outcomes explained clearly prior to removal, staff were very understanding and polite. All in all a very good experience. Would definitely recommend this dental clinic and would highly recommend Dr Kim.ABSOLUTELY THE BEST.", logo: "./images/google_logo.png" },
+                    { name: "Lauren Kim.", rating: "★★★★★", text: "Dr. Kim and all the nurses were very kind during my visit, and they were thorough during my check-in. Received a high quality service. Highly recommend.", logo: "./images/google_logo.png" },
                     { name: "Michael T.", rating: "★★★★★", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, ullam architecto quia, reiciendis corporis quas aut quidem minus nihil doloremque consequatur odio sunt eius culpa optio eveniet distinctio perspiciatis ea expedita adipisci similique dolor id unde natus? Soluta, minima illum!.", logo: "./images/google_logo.png" },
                     { name: "Sarah W.", rating: "★★★★★", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.", logo: "./images/google_logo.png" },
                     { name: "Chris P.", rating: "★★★★★", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus placeat sed molestias accusamus eum voluptatum quos beatae nemo, fugiat est, aut ullam aperiam consequuntur consequatur asperiores enim non assumenda aliquam? Porro modi optio delectus culpa?", logo: "./images/google_logo.png" },
@@ -3716,9 +3727,6 @@
                     { name: "Ethan B.", rating: "★★★★★", text: "Mauris aliquam consectetur tortor.", logo: "./images/google_logo.png" },
                     { name: "Olivia Z.", rating: "★★★★★", text: "Suspendisse potenti vestibulum ac.", logo: "./images/google_logo.png" },
                     { name: "James C.", rating: "★★★★★", text: "Phasellus nec turpis at sapien.", logo: "./images/google_logo.png" },
-                    { name: "Emma H.", rating: "★★★★★", text: "Donec congue facilisis eros.", logo: "./images/google_logo.png" },
-                    { name: "Noah M.", rating: "★★★★★", text: "Aliquam gravida ligula ut nisl.", logo: "./images/google_logo.png" },
-                    { name: "Liam F.", rating: "★★★★★", text: "Nunc faucibus sem nec mauris.", logo: "./images/google_logo.png" }
                 ];
 
                 const itemsPerPage = 3;
