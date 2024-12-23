@@ -17,7 +17,6 @@
     }
 
 
-
     /* 배너 섹션 스타일 */
     .banner {
         margin: 160px 0;
@@ -28,15 +27,15 @@
         border: 1px solid rgba(0, 0, 0, 0.5);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         position: relative;
-        /* 오버레이와 텍스트 배치를 위한 설정 */
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding-left: 50px;
-        border-bottom-right-radius: 250px;
+        justify-content: flex-start;
+        /* 왼쪽 정렬 */
+        text-align: left;
+        /* 텍스트 왼쪽 정렬 */
+        padding-left: 150px;
+        /* 좌측 여백 */
         overflow: hidden;
-        margin-right: 10%;
     }
 
     /* 검정색 반투명 오버레이 */
@@ -60,25 +59,28 @@
         padding: 20px;
         position: relative;
         z-index: 2;
-        text-align: center;
+        text-align: left;
         /* 오버레이 위로 배치 */
     }
 
     /* 텍스트 제목 스타일 */
     .banner-text h1 {
-        font-size: 48px;
+        font-size: 70px;
         margin: 0;
         font-weight: bold;
+        text-align: left;
     }
 
     /* 텍스트 설명 스타일 */
     .banner-text p {
-        font-size: 18px;
+        font-size: 28px;
         margin-top: 10px;
         line-height: 1.6;
+        text-align: left;
     }
-    #banner-text-p{
-        font-size: 8px;
+
+    #banner-text-p {
+        font-size: 18px;
     }
 
     /* 버튼 컨테이너 */
@@ -96,7 +98,7 @@
         text-decoration: none;
         border-radius: 5px;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        font-size: 14px;
+        font-size: 22px;
         font-weight: bold;
         text-align: center;
     }
@@ -121,7 +123,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         width: 100%;
         /* 추가 */
-        max-width: 1200px;
+        max-width: 1000px;
         /* 추가 */
         margin: 0 auto;
         /* 수정 */
@@ -159,7 +161,16 @@
         border-radius: 15px;
     }
 
-    .info-text h04 {
+    .info-text h1 {
+        display: block;
+        font-size: 36px;
+        color: #2c3e50;
+        margin: 30px 0 15px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .info-text h4 {
         display: block;
         font-size: 24px;
         color: #2c3e50;
@@ -199,6 +210,156 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-bottom-right-radius: 150px;
+    }
+
+    /* 🌟 공통 섹션 스타일 */
+    .content1-section {
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0;
+        overflow: visible;
+        position: relative;
+    }
+
+    /* 🌟 이미지 배너 섹션 스타일 */
+    .content1-image {
+        width: 100%;
+        min-height: 600px;
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        margin-bottom: 100px;
+    }
+
+    /* 어두운 그라데이션 오버레이 */
+    .content1-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5));
+        z-index: 1;
+    }
+
+
+    .content2-image {
+        width: 100%;
+        min-height: 600px;
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+    }
+
+    /* 어두운 그라데이션 오버레이 */
+    .content2-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5));
+        z-index: 1;
+    }
+
+    /* 🌟 배너 타이틀 */
+    .content1-title {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 40px;
+        padding-top: 50px;
+    }
+
+    .content1-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    /* 🌟 카드 컨테이너 */
+    .content1-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    /* 🌟 카드 스타일 */
+    .card1 {
+        background: transparent;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: left;
+        color: white;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card1 h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .card1 p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+    }
+
+    /* 🌟 반응형 디자인 */
+    @media (max-width: 1200px) {
+        .content1-section {
+            width: 85%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content1-section {
+            width: 95%;
+        }
+
+        .content1-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .content1-image {
+            min-height: auto;
+            padding: 30px 15px;
+        }
+
+        .content1-title h2 {
+            font-size: 2rem;
+        }
+
+        .card1 {
+            padding: 20px;
+        }
     }
 
 
@@ -260,75 +421,6 @@
         margin: 0 auto;
     }
 
-    /*price 섹션 스타일*/
-    전체 섹션 스타일
-
-    /* 섹션3 스타일 */
-    .content-section3 {
-        width: 80%;
-        /* 화면의 80% 너비 */
-        margin: 0 auto;
-        /* 중앙 정렬 */
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-    }
-
-    .content-section3 h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .content-cards3 {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: space-around;
-    }
-
-    .card3 {
-        background-color: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        flex: 1 1 calc(33.333% - 20px);
-        box-sizing: border-box;
-    }
-
-
-    .card3:hover {
-        transform: translateY(-10px);
-        /* 호버 시 위로 이동 */
-    }
-
-    .card-icon3 {
-        font-size: 28px;
-        /* 아이콘 크기 증가 */
-        color: #00796b;
-        /* 아이콘 색상 변경 */
-        margin-bottom: 15px;
-        /* 아이콘과 텍스트 간격 증가 */
-    }
-
-
-    .card3 h3 {
-        font-size: 20px;
-        /* 제목 크기 증가 */
-        margin-bottom: 12px;
-        /* 제목과 텍스트 간격 ���가 */
-        color: #004d40;
-        /* 제목 색상 변경 */
-    }
-
-    .card3 p {
-        font-size: 16px;
-        /* 본문 텍스트 크기 */
-        color: #666;
-        /* 본문 텍스트 색상 */
-        line-height: 1.5;
-        /* 줄 간격 증가 */
-    }
 
     /* 리뷰 섹션 스타일 */
     /* 섹션 스타일 */
@@ -835,23 +927,26 @@
     }
 
     .equipment-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+
+    .equipment-section h1 {
+        color: #2c3e50;
+        font-size: 32px;
+        margin-bottom: 30px;
+        line-height: 1.3;
+    }
+
+    .content-wrapper {
         display: flex;
         gap: 40px;
-        padding: 40px;
-        max-width: 1400px;
-        margin: 0 auto;
     }
 
     .equipment-content {
         flex: 1;
         padding-right: 20px;
-    }
-
-    .equipment-content h1 {
-        color: #2c3e50;
-        font-size: 32px;
-        margin-bottom: 30px;
-        line-height: 1.3;
     }
 
     .equipment-content h2 {
@@ -860,6 +955,10 @@
         margin: 30px 0 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #e9ecef;
+    }
+
+    .equipment-content h2:first-child {
+        margin-top: 0;
     }
 
     .equipment-content p {
@@ -889,55 +988,31 @@
         transform: scale(1.02);
     }
 
-    /* 반응형 디자인 */
     @media (max-width: 1024px) {
-        .equipment-section {
+        .content-wrapper {
             flex-direction: column;
-            padding: 20px;
-        }
-
-        .equipment-image {
-            width: 100%;
-        }
-
-        .equipment-image img {
-            height: 250px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .equipment-section {
-            flex-direction: column;
-            padding: 30px 20px;
         }
 
         .equipment-content {
             padding-right: 0;
         }
 
-        .equipment-content h1 {
+        .equipment-image {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .equipment-section {
+            padding: 30px 20px;
+        }
+
+        .equipment-section h1 {
             font-size: 28px;
         }
 
         .equipment-content h2 {
             font-size: 20px;
-        }
-
-        .equipment-image {
-            flex: 0;
-        }
-    }
-
-    /* 애니메이션 */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
         }
     }
 
@@ -1118,23 +1193,42 @@
         align-items: center;
         max-width: 1400px;
         margin: 0 auto;
-        padding: 20px 40px;
+        height: 100px;
+        /* 네비게이션 바의 높이 고정 */
         position: relative;
+        overflow: hidden;
+        /* 로고가 네비게이션 바를 벗어나지 않도록 */
     }
 
     /* 로고 스타일 */
     .logo {
         flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        /* 컨테이너 높이에 맞춤 */
     }
 
     .logo img {
-        height: 50px;
-        width: 100%;
-        transition: height 0.3s ease;
+        width: 400px;
+        /* 원하는 너비로 조정 */
+        height: auto;
+        /* 비율 유지 */
+        max-height: none;
+        /* 높이 제한 제거 */
+        object-fit: contain;
+        /* 이미지 비율 유지 */
+    }
+
+    /* 스크롤 시 로고 크기 변경 */
+    .header.scrolled .navbar {
+        height: 70px;
+        /* 스크롤 시 네비게이션 바 높이 */
     }
 
     .header.scrolled .logo img {
-        height: 50px;
+        width: 300px;
+        /* 스크롤 시 로고 너비 */
     }
 
     /* 네비게이션 링크 */
@@ -1185,97 +1279,82 @@
         width: 100%;
     }
 
-    /* 연락처 정보 */
     .contact-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
+        text-align: center;
+        padding: 40px 20px;
     }
 
-    .phone-number {
-        text-decoration: none;
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-header h4 {
         color: #333;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .contact-header p {
+        color: #666;
+        font-size: 16px;
+    }
+
+    .contact-methods {
         display: flex;
-        align-items: center;
-        gap: 5px;
+        justify-content: center;
+        /* space-evenly 제거하고 center로 */
+        gap: 100px;
+        /* 아이콘들 사이의 간격 */
+        max-width: 800px;
+        margin: 30px auto;
     }
 
-    .phone-number:hover {
-        color: #007bff;
-    }
-
-    /* 예약 버튼 */
-    .appointment-btn {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 5px;
+    .contact-link {
+        text-decoration: none;
+        color: #333;
         font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .appointment-btn:hover {
-        background-color: #0056b3;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
-    }
-
-    /* 모바일 메뉴 버튼 */
-    .mobile-menu-btn {
-        display: none;
+        display: flex;
         flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-        padding: 5px;
-        z-index: 1001;
-    }
-
-    .mobile-menu-btn span {
-        width: 25px;
-        height: 2px;
-        background-color: #333;
+        align-items: center;
+        gap: 10px;
+        /* 이건 아이콘과 텍스트 사이의 간격 */
         transition: all 0.3s ease;
     }
 
-    /* 모바일 메뉴 버튼 활성화 상태 */
-    .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
+    .contact-link:hover {
+        color: #007bff;
+        transform: translateY(-2px);
     }
 
-    .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
+    .contact-link img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
     }
 
-    .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+    .contact-link i {
+        font-size: 36px;
+        /* 아이콘 크기 증가 */
     }
 
-    /* 반응형 스타일 */
-    @media (max-width: 1200px) {
-        .nav-links ul {
-            gap: 25px;
-        }
-
-        .navbar {
-            padding: 15px 20px;
-        }
+    .contact-link span {
+        font-size: 14px;
     }
 
-    @media (max-width: 1024px) {
-        .nav-links {
-            display: none;
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+        .contact-methods {
+            flex-wrap: wrap;
+            gap: 30px 20px;
         }
 
-        .contact-info {
-            display: none;
+        .contact-link {
+            flex: 0 0 calc(50% - 10px);
         }
 
-        .mobile-menu-btn {
-            display: flex;
+        .contact-header h4 {
+            font-size: 18px;
         }
     }
 
@@ -1621,7 +1700,7 @@
     .popup-content {
         position: relative;
         background: white;
-        width: 90%;
+        width: 80%;
         max-width: 1200px;
         margin: 40px auto;
         padding: 30px;
@@ -1997,26 +2076,6 @@
         line-height: 1.5;
     }
 
-    .contact-info {
-        text-align: center;
-        background: #e3f2fd;
-        padding: 30px;
-        border-radius: 12px;
-        margin-top: 40px;
-    }
-
-    .contact-info p {
-        color: #2c3e50;
-        margin: 10px 0;
-    }
-
-    .contact-methods {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
 
     .phone-link {
         color: #2c3e50;
@@ -2287,6 +2346,67 @@
             display: none !important;
         }
     }
+
+    .academic-section {
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .read-more-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px auto;
+        transition: all 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .arrow-icon {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .arrow-icon.rotate {
+        transform: rotate(180deg);
+    }
+
+    .expandable-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .expandable-content.expanded {
+        max-height: 2000px;
+    }
+
+    .academic-content {
+        padding: 20px;
+    }
+
+    .academic-content h2 {
+        color: #333;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .academic-content p {
+        color: #666;
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+    }
 </style>
 
 <body>
@@ -2296,17 +2416,16 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="/">
-                    <a href="#header"><img src="./images/logo1.png" alt="Bansuk Dental Logo"></a>
+                    <a href="#header"><img src="./images/head_logo.png" alt="Bansuk Dental Logo"></a>
                 </a>
             </div>
             <div class="nav-links">
                 <ul>
-                    <li><a href="#about-section">Dental Introduction</a></li>
-                    <li><a href="#Introduction-section">Director Introduction</a></li>
-                    <li><a href="#price-section">Price</a></li>
-                    <li><a href="#equipment-section">Treatment</a></li>
-                    <li><a href="#process-section">Schedule</a></li>
+                    <li><a href="#content-section">Introduction</a></li>
+                    <li><a href="#Introduction-section">Director</a></li>
                     <li><a href="#location-section">Location</a></li>
+                    <li><a href="#about-section">Services</a></li>
+                    <li><a href="#price-section">Price & Schedule </a></li>
                 </ul>
             </div>
             <div class="mobile-menu-btn">
@@ -2325,11 +2444,10 @@
             </div>
         </nav>
     </header>
-    <script src=".//templet/header.js"></script>
 
     <!-- 배너 섹션 -->
     <section class="banner-section">
-        <div class="banner" style="background-image: url('.//images/main.jpg');">
+        <div class="banner" style="background-image: url('.//images/main.png');">
             <div class="banner-text">
                 <h1>Bansuk Dental</h1>
                 <p>Conservative Dentistry</p>
@@ -2340,7 +2458,8 @@
                 </p>
                 </p>
                 <div class="banner-buttons">
-                    <a href="mailto:bansukdentalclinic@gmail.com" class="banner-button">reservation</a>
+                    <a href="https://map.naver.com/p/search/%EB%B0%98%EC%84%9D%EC%B9%98%EA%B3%BC%EB%B3%B4%EC%A1%B4%EA%B3%BC/place/1351072876?searchType=place&lng=126.9790611&lat=37.5676678&placePath=/booking?bookingRedirectUrl=https://m.booking.naver.com/booking/13/bizes/778342?theme=place&entry=pll&lang=ko&area=pll&c=15.00,0,0,0,dh"
+                        target="_blank" class="banner-button">reservation</a>
                     <a href="mailto:bansukdentalclinic@gmail.com" class="banner-button">contact us</a>
                 </div>
             </div>
@@ -2350,15 +2469,6 @@
     <!-- 정보 섹션 -->
     <section id="info-section" class="info-section">
         <div class="info-content">
-            <!-- <div class="info-header">
-                <h2>Expertise in Dental Preservation</h2>
-                <p class="info-subtitle">At Bansuk Dental Restoration Clinic, we specialize in preserving and restoring your natural teeth,
-                    ensuring long-term dental health through advanced treatments and a patient-centered approach.
-                </p>
-            </div>
-            <div class="info-image">
-                <img src="./images/KakaoTalk_20241124_165550305_08.jpg" alt="Specialized Care Image">
-            </div> -->
             <div class="intro-section">
                 <h2>Expertise in Dental Preservation</h2>
                 <p class="info-subtitle">At Bansuk Dental Restoration Clinic, we specialize in preserving and restoring
@@ -2366,10 +2476,11 @@
                     ensuring long-term dental health through advanced treatments and a patient-centered approach.
                 </p>
                 <div class="info-image">
-                    <img src="./images/KakaoTalk_20241124_165550305_08.jpg" alt="Specialized Care Image">
+                    <img src="./images/KakaoTalk_20241124_165550305.jpg" alt="Specialized Care Image">
                 </div>
             </div>
             <div class="info-text">
+                <h1>Bansuk's Pilasophy </h1>
                 <hr>
                 <h04>Patient-Centered Care</h04>
                 <p>"We believe in a personalized approach to dentistry, focusing on each patient's unique needs and
@@ -2391,107 +2502,125 @@
         </div>
     </section>
     <!-- 텍스트 콘텐츠 시작 -->
-    <section class="content-section">
-        <h2>Why Choose Bansuk Dental Clinic?</h2>
-        <div class="content-cards">
-            <!-- 카드: 최고의 품질 -->
-            <div class="card">
-                <div>
-                    <h2>Highly Skilled Specialist</h2>
-                    <p>Receive care from Dr. Kim, a certified specialist with years of experience in advanced
-                        treatments, including root canals, implants, and aesthetic dentistry. Your smile is in expert
-                        hands
-                    </p>
-                </div>
-            </div>
-            <!-- 카드: 혁신적인 기술 -->
-            <div class="card">
-                <div>
-                    <h2>Prime Location in Central Seoul</h2>
-                    <p>Conveniently located in the heart of Seoul, making it easy to access whether you're a local
-                        resident or a visitor exploring the city.
-                    </p>
-                </div>
-            </div>
+    <section class="content1-section" id="content-section">
+        <div class="content1-image" style="background-image: url('.//images/DSC00079.jpg');">
 
-        </div>
-        <div class="content-cards">
-            <!-- 카드: 최고의 품질 -->
-            <div class="card">
-                <div>
-                    <h2>Comfort-Focused, Painless Treatments</h2>
-                    <p>Our clinic prioritizes your comfort with gentle techniques and sedation options, ensuring a
-                        pain-free experience from start to finish.
-                    </p>
-                </div>
+            <div class="content1-title">
+                <h2>Why Choose Bansuk Dental Clinic?</h2>
             </div>
-            <!-- 카드: 혁신적인 기술 -->
-            <div class="card">
-                <div>
-                    <h2>Same-Day Appointments Available</h2>
-                    <p>Need urgent dental care? We offer same-day appointments to fit your schedule and provide timely,
-                        efficient treatment.
-                    </p>
+            <div class="content1-cards">
+                <!-- 카드: 최고의 품질 -->
+                <div class="card1">
+                    <div>
+                        <h2>Highly Skilled Specialist</h2>
+                        <p>Receive care from Dr. Kim, a certified specialist with years of experience in advanced
+                            treatments, including root canals, implants, and aesthetic dentistry. Your smile is in
+                            expert
+                            hands
+                        </p>
+                    </div>
                 </div>
-            </div>
+                <!-- 카드: 혁신적인 기술 -->
+                <div class="card1">
+                    <div>
+                        <h2>Prime Location in Central Seoul</h2>
+                        <p>Conveniently located in the heart of Seoul, making it easy to access whether you're a local
+                            resident or a visitor exploring the city.
+                        </p>
+                    </div>
+                </div>
 
-        </div>
+            </div>
+            <div class="content1-cards">
+                <!-- 카드: 최고의 품질 -->
+                <div class="card1">
+                    <div>
+                        <h2>Comfort-Focused, Painless Treatments</h2>
+                        <p>Our clinic prioritizes your comfort with gentle techniques and sedation options, ensuring a
+                            pain-free experience from start to finish.
+                        </p>
+                    </div>
+                </div>
+                <!-- 카드: 혁신적인 기술 -->
+                <div class="card1">
+                    <div>
+                        <h2>Same-Day Appointments Available</h2>
+                        <p>Need urgent dental care? We offer same-day appointments to fit your schedule and provide
+                            timely,
+                            efficient treatment.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
     </section>
     <!-- 텍스트 콘텐츠 끝 -->
 
     <!-- 콘텐츠 섹션 -->
-    <section class="content-section">
-        <h2>ABOUT BANSUK DENTAL</h2>
-        <div class="content-cards">
-            <!-- 카드: 최고의 품질 -->
-            <div class="card">
-                <div>
-                    <h2>Specialist in Dental Conservation and Endodontics</h2>
-                    <p>A Dental Conservation Specialist, often referred to as an Endodontist, focuses on preserving
-                        natural teeth through advanced techniques aimed at maintaining the integrity and health of the
-                        tooth structure. Unlike general dentists who provide a broad range of dental care, or other
-                        dental specialists who may focus on surgical or cosmetic procedures, a dental conservation
-                        specialist is dedicated to saving and restoring natural teeth, even in complex cases.
-                    </p>
-                </div>
+    <section class="content1-section">
+        <div class="content2-image" style="background-image: url('.//images/KakaoTalk_20241124_165550305_11.jpg');">
+            <div class="content1-title">
+                <h2>About Bansuk Dental Clinic</h2>
             </div>
-            <!-- 카드: 혁신적인 기술 -->
-            <div class="card">
-                <div>
-                    <h2>Advanced Expertise in Saving Natural Teeth</h2>
-                    <p>With years of specialized training beyond general dentistry, conservation specialists use
-                        state-of-the-art techniques, such as root canal therapy, to treat damaged or infected teeth and
-                        prevent extractions. Their advanced expertise allows them to address deep-rooted dental issues,
-                        preserving teeth that might otherwise be removed.
-                    </p>
+            <div class="content1-cards">
+                <!-- 카드: 최고의 품질 -->
+                <div class="card1">
+                    <div>
+                        <h2>Specialist in Dental Conservation and Endodontics</h2>
+                        <p>A Dental Conservation Specialist, often referred to as an Endodontist, focuses on preserving
+                            natural teeth through advanced techniques aimed at maintaining the integrity and health of
+                            the
+                            tooth structure. Unlike general dentists who provide a broad range of dental care, or other
+                            dental specialists who may focus on surgical or cosmetic procedures, a dental conservation
+                            specialist is dedicated to saving and restoring natural teeth, even in complex cases.
+                        </p>
+                    </div>
                 </div>
-            </div>
+                <!-- 카드: 혁신적인 기술 -->
+                <div class="card1">
+                    <div>
+                        <h2>Advanced Expertise in Saving Natural Teeth</h2>
+                        <p>With years of specialized training beyond general dentistry, conservation specialists use
+                            state-of-the-art techniques, such as root canal therapy, to treat damaged or infected teeth
+                            and
+                            prevent extractions. Their advanced expertise allows them to address deep-rooted dental
+                            issues,
+                            preserving teeth that might otherwise be removed.
+                        </p>
+                    </div>
+                </div>
 
-        </div>
-        <div class="content-cards">
-            <!-- 카드: 최고의 ���질 -->
-            <div class="card">
-                <div>
-                    <h2>Focus on Long-Term Dental Health and Minimally Invasive Procedures</h2>
-                    <p>Endodontists prioritize long-term dental health by employing minimally invasive procedures that
-                        focus on the natural structure of each tooth. This approach minimizes patient discomfort and
-                        ensures that treatments are designed for durability and longevity, protecting the original teeth
-                        whenever possible
-                    </p>
+            </div>
+            <div class="content1-cards">
+                <!-- 카드: 최고의 질 -->
+                <div class="card1">
+                    <div>
+                        <h2>Focus on Long-Term Dental Health and Minimally Invasive Procedures</h2>
+                        <p>Endodontists prioritize long-term dental health by employing minimally invasive procedures
+                            that
+                            focus on the natural structure of each tooth. This approach minimizes patient discomfort and
+                            ensures that treatments are designed for durability and longevity, protecting the original
+                            teeth
+                            whenever possible
+                        </p>
+                    </div>
+                </div>
+                <!-- 카드: 혁신적인 기술 -->
+                <div class="card1">
+                    <div>
+                        <h2>Precision and Pain Management for Complex Cases</h2>
+                        <p>A dental conservation specialist is skilled in handling complex cases involving the tooth's
+                            inner
+                            structures (such as the pulp and nerves), often using advanced imaging technologies for
+                            accurate
+                            diagnosis and treatment. With a keen focus on patient comfort, they are experts in pain
+                            management, making the process as seamless as possible.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <!-- 카드: 혁신적인 기술 -->
-            <div class="card">
-                <div>
-                    <h2>Precision and Pain Management for Complex Cases</h2>
-                    <p>A dental conservation specialist is skilled in handling complex cases involving the tooth's inner
-                        structures (such as the pulp and nerves), often using advanced imaging technologies for accurate
-                        diagnosis and treatment. With a keen focus on patient comfort, they are experts in pain
-                        management, making the process as seamless as possible.
-                    </p>
-                </div>
-            </div>
         </div>
+
     </section>
     <!-- 맵 컴프넌트-->
     <section id="location-section" class="location-section">
@@ -2631,41 +2760,75 @@
                 <h3>As an English-speaking dentist, Dr. Kim provides clear and compassionate care to both local and
                     international patients. His expertise in implants and bone grafting allows him to restore even the
                     most complex cases, ensuring patients regain full dental function with confidence. </h3>
-                <p>"Whether you need restorative, aesthetic, or implant-based care, Dr. Kim is dedicated to delivering
-                    professional and comfortable treatment tailored to your needs."
+                <p>Whether you need restorative, aesthetic, or implant-based care, Dr. Kim is dedicated to delivering
+                    professional and comfortable treatment tailored to your needs.
+                    "
                 </p>
-                <h2>Academic Background and Career Highlights of Dr. Kim Bansuk</h2>
-
-                <h2>Academic Background</h2>
-                <p>DDS (Doctor of Dental Surgery) – Catholic University of Korea School of Medicine</p>
-                <p>Master's Degree in Restorative and Prosthetic Dentistry – Catholic University Graduate School of
-                    Dentistry</p>
-                <p>Certified Specialist in Conservative Dentistry – Completed Internship and Residency at Seoul St.
-                    Mary's Hospital</p>
-                <p>Advanced Implant Training – Completed Regular Course at Osstem Implant</p>
-
-                <h2>Career Highlights</h2>
-                <p>Director of Bansuk Dental Clinic, Seoul, South Korea</p>
-                <p>Served as a dental officer in the Republic of Korea Army, gaining diverse clinical experience and
-                    dedicating service to the nation</p>
-                <p>Presidential Dentist for the Mayor of Seoul, providing high-level dental care to public officials</p>
-                <p>Published researcher in the field of dental preservation, with notable contributions to endodontics
-                    and restorative dentistry</p>
-                <p>International Member of the American Association of Endodontists (AAE), reflecting global recognition
-                    of his expertise in root canal treatment and dental preservation</p>
-                <p>Member of [Other Professional Dental Associations, e.g., Korean Academy of Endodontics,
-                    Korean Dental Association, etc.]</p>
 
             </div>
             <div class="intro-doctor-image">
-                <img src="./images/profile.jpg" alt="Specialized Care Image">
+                <img src="./images/person.jpeg" alt="Specialized Care Image">
+                <img src="./images/person2.jpeg" alt="Specialized Care Image">
             </div>
+            <div class="academic-section">
+                <button id="readMoreBtn" class="read-more-btn">
+                    Read More About Dr. Kim's Background
+                    <span class="arrow-icon">▼</span>
+                </button>
+
+                <div id="expandableContent" class="expandable-content">
+                    <div class="academic-content">
+                        <h2>Academic Background and Career Highlights of Dr. Kim Bansuk</h2>
+
+                        <h2>Academic Background</h2>
+                        <p><strong>DDS (Doctor of Dental Surgery)</strong> – Catholic University of Korea School of
+                            Medicine</p>
+                        <p><strong>Master's Degree in Restorative and Prosthetic Dentistry</strong> – Catholic
+                            University Graduate School
+                            of Dentistry</p>
+                        <p><strong>Certified Specialist in Conservative Dentistry</strong> – Completed Internship and
+                            Residency at Seoul
+                            St. Mary's Hospital</p>
+                        <p><strong></strong>Advanced Implant Training</strong> – Completed Regular Course at Osstem
+                            Implant</p>
+
+                        <h2>Career Highlights</h2>
+                        <p>Director of <strong>Bansuk Dental Clinic</strong>, Seoul, South Korea</p>
+                        <p>Served as a dental officer in the <strong>Republic of Korea Army</strong>, gaining diverse
+                            clinical experience
+                            and dedicating service to the nation</p>
+                        <p><strong>Presidential Dentist for the Mayor of Seoul</strong>, providing high-level dental
+                            care to public offic
+                            ials</p>
+                        <p>Published researcher in the field of dental preservation, with notable contributions to
+                            endodontics and restorative dentistry</p>
+                        <p>International Member of the <strong>American Association of Endodontists (AAE)</strong>,
+                            reflecting global
+                            recognition of his expertise in root canal treatment and dental preservation</p>
+                        <p>Expert in advanced procedures, including root canal treatment, aesthetic restorations, and im
+                            plant placement</p>
+                        <p>Member of Korean Academy of Conservative Dentistry, Korean Academy of Endodontics</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <script>
-        $(document).ready(function () {
-            $("#seoul-component").load("./components/seoul.html");
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const expandableContent = document.getElementById('expandableContent');
+        const arrowIcon = readMoreBtn.querySelector('.arrow-icon');
+
+        readMoreBtn.addEventListener('click', function () {
+            expandableContent.classList.toggle('expanded');
+            arrowIcon.classList.toggle('rotate');
+
+            if (expandableContent.classList.contains('expanded')) {
+                readMoreBtn.innerHTML = 'Show Less <span class="arrow-icon rotate">▼</span>';
+            } else {
+                readMoreBtn.innerHTML = 'Read More About Dr. Kim\'s Background <span class="arrow-icon">▼</span>';
+            }
         });
     </script>
 
@@ -2673,45 +2836,60 @@
     <!-- Equipment 컴포넌트 -->
     <!-- 장비 섹션-->
     <section id="equipment-section" class="equipment-section">
-        <div class="equipment-content">
-            <h1>Advanced Dental Equipment at Bansuk Dental Restoration Clinic</h1>
-            <h2>1. Dentsply Sirona Intego Treatment Chair for Maximum Comfort</h2>
-            <p>Our clinic is equipped with the premium Intego Treatment Chair by Dentsply Sirona, designed for
-                exceptional patient comfort during procedures. This high-end chair offers ergonomic support, smooth
-                adjustment controls, and a relaxing experience, allowing patients to feel at ease even during longer
-                treatments.</p>
-            <h2>2. Zeiss EXTARO 300 Dental Microscope for Precision in Complex Treatments</h2>
-            <p>For high-precision endodontic treatments, we utilize the Zeiss EXTARO 300 dental microscope. This
-                advanced microscope allows our specialists to see intricate details inside the root canals, enabling
-                precise and effective treatment even in complex cases. With EXTARO 300, we achieve enhanced accuracy and
-                better long-term outcomes in root canal procedures.
-            </p>
-            <h2>3. Digital X-Ray for Safe and Accurate Imaging</h2>
-            <p>Our digital X-ray technology provides high-resolution images with significantly reduced radiation
-                exposure compared to conventional X-rays. This allows us to diagnose and monitor dental conditions
-                accurately while prioritizing patient safety.
-            </p>
-            <h2>4. 3D CT Scan for Detailed Diagnosis and Treatment Planning</h2>
-            <p>We use a 3D CT scanner that generates comprehensive, three-dimensional images of your teeth, jawbone, and
-                surrounding structures. This technology is essential for planning complex procedures, such as implant
-                placement and bone grafting, ensuring accurate treatment and optimal results.
-            </p>
-            <h2>5. Intraoral Camera for Clear Patient Communication</h2>
-            <p>Our intraoral camera allows for a close-up view of your mouth, enabling our team to show you detailed
-                images of your dental condition. This helps us explain your treatment options clearly, making sure you
-                are informed and confident throughout your dental journey.
-            </p>
-            <h2>6. Ultrasonic Scaler for Efficient and Comfortable Teeth Cleaning</h2>
-            <p>Our ultrasonic scaler gently removes tartar and plaque from your teeth using ultrasonic vibrations. It
-                provides a deep clean below the gum line, supporting gum health and leaving your teeth feeling refreshed
-                after each visit
-            </p>
-        </div>
-        <div class="equipment-image">
-            <img src="./images/KakaoTalk_20241124_165550305_19.jpg" alt="placeholder">
-            <img src="./images/KakaoTalk_20241124_165550305_20.jpg" alt="placeholder">
-            <img src="./images/KakaoTalk_20241124_165550305_22.jpg" alt="placeholder">
-            <img src="./images/KakaoTalk_20241124_165550305_02.jpg" alt="placeholder">
+        <h1>Advanced Dental Equipment at Bansuk Dental Restoration Clinic</h1>
+
+        <div class="content-wrapper">
+            <div class="equipment-content">
+                <div class="equipment-text">
+                    <h2>1. Dentsply Sirona Intego Treatment Chair for Maximum Comfort</h2>
+                    <p>Our clinic is equipped with the premium Intego Treatment Chair by Dentsply Sirona, designed for
+                        exceptional patient comfort during procedures. This high-end chair offers ergonomic support,
+                        smooth
+                        adjustment controls, and a relaxing experience, allowing patients to feel at ease even during
+                        longer
+                        treatments.</p>
+                    <h2>2. Zeiss EXTARO 300 Dental Microscope for Precision in Complex Treatments</h2>
+                    <p>For high-precision endodontic treatments, we utilize the Zeiss EXTARO 300 dental microscope. This
+                        advanced microscope allows our specialists to see intricate details inside the root canals,
+                        enabling
+                        precise and effective treatment even in complex cases. With EXTARO 300, we achieve enhanced
+                        accuracy and
+                        better long-term outcomes in root canal procedures.</p>
+                    <h2>3. Digital X-Ray for Safe and Accurate Imaging</h2>
+                    <p>Our digital X-ray technology provides high-resolution images with significantly reduced radiation
+                        exposure compared to conventional X-rays. This allows us to diagnose and monitor dental
+                        conditions
+                        accurately while prioritizing patient safety.
+                    </p>
+                    <h2>4. 3D CT Scan for Detailed Diagnosis and Treatment Planning</h2>
+                    <p>We use a 3D CT scanner that generates comprehensive, three-dimensional images of your teeth,
+                        jawbone, and
+                        surrounding structures. This technology is essential for planning complex procedures, such as
+                        implant
+                        placement and bone grafting, ensuring accurate treatment and optimal results.
+                    </p>
+                    <h2>5. Intraoral Camera for Clear Patient Communication</h2>
+                    <p>Our intraoral camera allows for a close-up view of your mouth, enabling our team to show you
+                        detailed
+                        images of your dental condition. This helps us explain your treatment options clearly, making
+                        sure you
+                        are informed and confident throughout your dental journey.
+                    </p>
+                    <h2>6. Ultrasonic Scaler for Efficient and Comfortable Teeth Cleaning</h2>
+                    <p>Our ultrasonic scaler gently removes tartar and plaque from your teeth using ultrasonic
+                        vibrations. It
+                        provides a deep clean below the gum line, supporting gum health and leaving your teeth feeling
+                        refreshed
+                        after each visit
+                    </p>
+                </div>
+            </div>
+            <div class="equipment-image">
+                <img src="./images/KakaoTalk_20241124_165550305_19.jpg" alt="placeholder">
+                <img src="./images/KakaoTalk_20241124_165550305_20.jpg" alt="placeholder">
+                <img src="./images/KakaoTalk_20241124_165550305_22.jpg" alt="placeholder">
+                <img src="./images/KakaoTalk_20241124_165550305_02.jpg" alt="placeholder">
+            </div>
         </div>
     </section>
 
@@ -3125,13 +3303,32 @@
                 </ul>
             </div>
         </div>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
         <div class="contact-info">
-            <p>At Bansuk Dental Clinic, we strive to accommodate your schedule while ensuring high-quality care.</p>
-            <p>Contact us to plan your treatment timeline!</p>
+            <div class="contact-header">
+                <h4>At Bansuk Dental Clinic, we strive to accommodate your schedule while ensuring high-quality care.
+                </h4>
+                <p>Contact us to plan your treatment timeline!</p>
+            </div>
+
             <div class="contact-methods">
-                <span>DM, KakaoTalk, or</span>
-                <a href="tel:+82-2-776-2080" class="phone-link">📞 +82-2-776-2080</a>
+                <a href="tel:+82-2776-2080" class="contact-link">
+                    <i class="ph ph-phone"></i>
+                    <span>+82-2776-2080</span>
+                </a>
+                <a href="https://instagram.com/bansukdental" class="contact-link">
+                    <i class="ph ph-instagram-logo"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="mailto:bansukdentalclinic@gmail.com" class="contact-link">
+                    <i class="ph ph-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="http://pf.kakao.com/_TNxnTxj " class="contact-link">
+                    <i class="ph ph-chat-circle"></i>
+                    <span>KakaoTalk</span>
+                </a>
             </div>
         </div>
     </div>
