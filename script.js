@@ -6,13 +6,14 @@ if (mobileMenuBtn && mobileMenuPopup) {
   mobileMenuBtn.addEventListener('click', function() {
     this.classList.toggle('active');
     mobileMenuPopup.classList.toggle('active');
-    // 메뉴 열릴 때 스크롤 방지
-    if(mobileMenuPopup.classList.contains('active')) {
+    if (mobileMenuPopup.classList.contains('active')) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
   });
+
+  // 모바일 메뉴에서 링크 클릭 시 메뉴 닫기
   mobileMenuPopup.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function() {
       mobileMenuBtn.classList.remove('active');
@@ -22,32 +23,38 @@ if (mobileMenuBtn && mobileMenuPopup) {
   });
 }
 
-// 스크롤 시 헤더 scrolled 클래스
+// 스크롤 시 헤더 배경+높이 변화
 window.addEventListener('scroll', function() {
   const headerEl = document.getElementById('header');
-  if(window.scrollY > 50) {
+  if (!headerEl) return;
+
+  // 스크롤이 50px 이상이면 scrolled 클래스 부여
+  if (window.scrollY > 50) {
     headerEl.classList.add('scrolled');
   } else {
     headerEl.classList.remove('scrolled');
   }
 });
 
-// 앵커 스크롤
+// 내부 앵커 이동 시, 헤더 높이 보정
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const targetId = this.getAttribute('href');
     const targetEl = document.querySelector(targetId);
-    if(targetEl) {
+
+    if (targetEl) {
       const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
       const offsetTop = targetEl.offsetTop - headerHeight;
+
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
       });
-      // 모바일 메뉴가 열려있다면 닫기
-      mobileMenuBtn.classList.remove('active');
-      mobileMenuPopup.classList.remove('active');
+
+      // 모바일 메뉴 닫기
+      if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+      if (mobileMenuPopup) mobileMenuPopup.classList.remove('active');
       document.body.style.overflow = 'auto';
     }
   });
@@ -58,32 +65,38 @@ const openPopupBtn = document.getElementById('openPopup');
 const closePopupBtn = document.getElementById('closePopup');
 const popup = document.getElementById('popup');
 
-if(openPopupBtn && closePopupBtn && popup) {
+if (openPopupBtn && closePopupBtn && popup) {
   openPopupBtn.addEventListener('click', function () {
     popup.style.display = 'block';
     document.body.style.overflow = 'hidden';
   });
+
   closePopupBtn.addEventListener('click', function () {
     popup.style.display = 'none';
     document.body.style.overflow = 'auto';
   });
+
+  // 팝업 바깥 클릭 시 닫기
   popup.addEventListener('click', function(e) {
-    if(e.target === popup) {
+    if (e.target === popup) {
       popup.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
   });
+
+  // Esc 키로 닫기
   document.addEventListener('keydown', function(e) {
-    if(e.key === 'Escape' && popup.style.display === 'block') {
+    if (e.key === 'Escape' && popup.style.display === 'block') {
       popup.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
   });
 }
 
-// Read More (학력/경력 접기)
+// Read More (학력/경력) 버튼
 const readMoreBtn = document.getElementById('readMoreBtn');
 const expandableContent = document.getElementById('expandableContent');
+
 if (readMoreBtn && expandableContent) {
   const arrowIcon = readMoreBtn.querySelector('.arrow-icon');
   readMoreBtn.addEventListener('click', function () {
@@ -97,7 +110,7 @@ if (readMoreBtn && expandableContent) {
   });
 }
 
-// 리뷰 (3개씩 or 1개씩 - 반응형)
+// 리뷰 데이터
 const testimonialsData = [
   {
     name: "Jessica Ko",
@@ -106,7 +119,7 @@ const testimonialsData = [
     logo: "./images/google_logo.png",
   },
   {
-    name: "peter kang",
+    name: "Peter Kang",
     rating: "★★★★★",
     text: "I've visited many dental clinics in Seoul, but this place is truly the best. The staff provide incredibly friendly service...",
     logo: "./images/google_logo.png",
@@ -131,36 +144,34 @@ const testimonialsData = [
   },
 ];
 
-// 화면 폭에 따라 itemsPerPage 결정
+// 화면폭에 따라 리뷰 몇 개씩 보여줄지 결정
 function getItemsPerPage() {
   if (window.innerWidth < 768) {
-    return 1; // 모바일(768px 미만)에서는 1개씩
+    return 1;
   } else {
-    return 3; // 데스크톱은 3개씩
+    return 3;
   }
 }
 
 let currentPage = 1;
 
+// 리뷰 렌더링
 function renderReviews(page) {
   const container = document.querySelector('.testimonials-container');
-  if(!container) return;
+  if (!container) return;
 
   const itemsPerPage = getItemsPerPage();
   const totalPages = Math.ceil(testimonialsData.length / itemsPerPage);
-
-  // 페이지 범위
-  if(page > totalPages) page = totalPages;
-  if(page < 1) page = 1;
+  if (page < 1) page = totalPages;
+  if (page > totalPages) page = 1;
   currentPage = page;
 
   container.innerHTML = "";
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const sliceData = testimonialsData.slice(startIdx, endIdx);
 
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  const items = testimonialsData.slice(start, end);
-
-  items.forEach(item => {
+  sliceData.forEach(item => {
     const card = `
       <div class="testimonial-card">
         <h3 class="testimonial-name">${item.name}</h3>
@@ -177,44 +188,33 @@ function renderReviews(page) {
 
 // 이전 페이지
 window.prevPage = function() {
-  const itemsPerPage = getItemsPerPage();
-  const totalPages = Math.ceil(testimonialsData.length / itemsPerPage);
-  currentPage = (currentPage === 1) ? totalPages : currentPage - 1;
-  renderReviews(currentPage);
+  renderReviews(currentPage - 1);
 };
 
 // 다음 페이지
 window.nextPage = function() {
-  const itemsPerPage = getItemsPerPage();
-  const totalPages = Math.ceil(testimonialsData.length / itemsPerPage);
-  currentPage = (currentPage === totalPages) ? 1 : currentPage + 1;
-  renderReviews(currentPage);
+  renderReviews(currentPage + 1);
 };
 
-// 초기 렌더
+// 페이지 로드 후 초기 리뷰 렌더
 document.addEventListener('DOMContentLoaded', function() {
   renderReviews(currentPage);
 });
 
-// 리사이즈 시 재렌더 (3->1 or 1->3)
-window.addEventListener('resize', function() {
-  renderReviews(currentPage);
-});
-
-// 원장 소개 sticky 기능
+// 스크롤 시 원장 이미지 흔들림 (옵션)
 document.addEventListener('DOMContentLoaded', function() {
   const doctorSection = document.querySelector('.intro-doctor-section');
   const doctorImage = document.querySelector('.intro-doctor-image');
   const doctorContent = document.querySelector('.intro-doctor-content');
-  
-  if(doctorSection && doctorImage && doctorContent) {
+
+  if (doctorSection && doctorImage && doctorContent) {
     window.addEventListener('scroll', function() {
       const sectionRect = doctorSection.getBoundingClientRect();
       const contentRect = doctorContent.getBoundingClientRect();
       const imageRect = doctorImage.getBoundingClientRect();
       const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-      
-      if(sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
+
+      if (sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
         const maxScroll = contentRect.height - imageRect.height;
         const sectionScrollPosition = Math.max(0, -sectionRect.top + headerHeight);
         const imagePosition = Math.min(maxScroll, sectionScrollPosition);
@@ -224,16 +224,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// 모바일에서 원장 이미지 위치 조정 (간단한 버전)
+// 모바일에서 원장 이미지를 h2 아래로 복제(옵션)
 document.addEventListener('DOMContentLoaded', function() {
   const doctorH2 = document.querySelector('.intro-doctor-text h2');
-  const imgSrc = document.querySelector('.intro-doctor-image img').src;
-  
-  if (doctorH2 && imgSrc) {
-    // h2 바로 아래에 모바일용 이미지 동적 추가
+  const originalImg = document.querySelector('.intro-doctor-image img');
+  if (doctorH2 && originalImg) {
     const mobileImg = document.createElement('div');
     mobileImg.className = 'mobile-doctor-image';
-    mobileImg.innerHTML = `<img src="${imgSrc}" alt="Dr. Kim Profile Image" style="width:100%;">`;
+    mobileImg.innerHTML = `<img src="${originalImg.src}" alt="Dr. Kim Profile Image" style="width:100%;"/>`;
     doctorH2.after(mobileImg);
   }
 });
