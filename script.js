@@ -116,31 +116,31 @@ const testimonialsData = [
     name: "Jessica Ko",
     rating: "★★★★★",
     text: "Bansuk did amazing work with my teeth. The nurses were kind and helpful. The doctor spoke both English and Korean...",
-    logo: "./images/google_logo.png",
+    logo: "https://en.bsdent.co.kr/images/google_logo.png",
   },
   {
     name: "Peter Kang",
     rating: "★★★★★",
     text: "I've visited many dental clinics in Seoul, but this place is truly the best. The staff provide incredibly friendly service...",
-    logo: "./images/google_logo.png",
+    logo: "https://en.bsdent.co.kr/images/google_logo.png",
   },
   {
     name: "Lauryn Duriez",
     rating: "★★★★★",
     text: "Une clinique foreigner friendly pour vos détartrages ! (Root canal, etc.) Très professionnel et serviable.",
-    logo: "./images/google_logo.png",
+    logo: "https://en.bsdent.co.kr/images/google_logo.png",
   },
   {
     name: "Ryan Kyungsoo Shim",
     rating: "★★★★★",
     text: "Located in the CBD area, easy to access. I had my upper and lower wisdom teeth taken out a week ago...",
-    logo: "./images/google_logo.png",
+    logo: "https://en.bsdent.co.kr/images/google_logo.png",
   },
   {
     name: "Lauren Kim",
     rating: "★★★★★",
     text: "Dr. Kim and all the nurses were very kind during my visit, and they explained everything thoroughly...",
-    logo: "./images/google_logo.png",
+    logo: "https://en.bsdent.co.kr/images/google_logo.png",
   },
 ];
 
@@ -236,9 +236,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// popup script
+// 쿠키 설정 함수
+const oneupSetCookie = (name, value, hours) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    // 보안 적용: HTTPS 환경 고려 Secure 옵션 및 SameSite 설정
+    document.cookie = `${name}=${value};${expires};path=/;SameSite=Strict;Secure`;
+};
 
-// 20260513 팝업 script 추가
-
+// 쿠키 가져오기 함수
+const oneupGetCookie = (name) => {
+    const cookieName = `${name}=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    
+    for (let i = 0; i < cookieArray.length; i++) {
+        let c = cookieArray[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cookieName) === 0) {
+            return c.substring(cookieName.length, c.length);
+        }
+    }
+    return '';
+};
 
 // 팝업 초기화 및 실행
 const oneupInitPopups = () => {
