@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* 최상위 배경 래퍼 */
+.oneup-pop-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: none; 
+}
+
+/* 개별 팝업 컨테이너 */
+.oneup-pop-box {
+    position: absolute; 
+    border-radius: 8px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px;
+    overflow: hidden;
+}
+
+/* 팝업 내용 영역 (이미지 전용이므로 여백 제거) */
+.oneup-pop-content {
+      padding: 0;
+    font-size: 0;
+    background: #fff;
+}
+
+.oneup-pop-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 팝업 하단 컨트롤 영역 */
+.oneup-pop-footer {
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffffd9;
+    padding: 8px 10px;
+    border-top: 1px solid #f1f1f1;
+}
+
+/* 닫기 버튼 */
+.oneup-pop-close {
+ background: #63C3AE;
+background: linear-gradient(90deg,rgba(99, 195, 174, 1) 0%, rgba(81, 137, 201, 1) 100%);
+    color: #fff;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-weight: bold;
+}
+.oneup-pop-close:hover{
+  opacity: 0.7;
+}
+
+
+.oneup-pop-today-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    user-select: none;
+    letter-spacing: -0.05em;
+}
+
+.oneup-pop-today-wrap:hover {
+  color: #ff6347;
+}
+.oneup-pop-today {
+    display: none;
+}
+
+.oneup-pop-check {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+/* 체크 마크 (기본 상태는 숨김) */
+.oneup-pop-check::after {
+    content: '';
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+    display: none;
+}
+
+
+.oneup-pop-today:checked + .oneup-pop-check {
+    background-color: #222;
+    border-color: #222;
+}
+
+.oneup-pop-today:checked + .oneup-pop-check::after {
+    display: block;
+}
+
+/* 모바일 반응형 (768px 이하) */
+@media screen and (max-width: 768px) {
+  .oneup-pop-today-wrap {
+    font-size: 3.3vw;
+}
+  .oneup-pop-close {
+      padding: 0.5em 1em;
+      font-size: 13px;
+  }
+    .oneup-pop-box {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+        width: 85% !important; 
+    }
+}

@@ -235,3 +235,89 @@ document.addEventListener('DOMContentLoaded', function() {
     doctorH2.after(mobileImg);
   }
 });
+
+
+// 20260513 팝업 script 추가
+
+
+// 팝업 초기화 및 실행
+const oneupInitPopups = () => {
+    const $wrapper = document.querySelector('.oneup-pop-wrapper');
+    if (!$wrapper) return;
+
+    const $popups = document.querySelectorAll('.oneup-pop-box');
+    let activePopupCount = 0;
+
+    $popups.forEach(($pop) => {
+        const rawPopId = $pop.dataset.id;
+        
+        // (XSS 방지)
+        const safePopId = rawPopId ? rawPopId.replace(/[^a-zA-Z0-9_-]/g, '') : null;
+        if (!safePopId) return;
+
+        const cookieValue = oneupGetCookie(`oneup_pop_${safePopId}`);
+
+        // 쿠키가 없다면 팝업 노출
+        if (cookieValue !== 'true') {
+            $pop.style.display = 'flex';
+            activePopupCount++;
+
+            // PC 화면일 경우 dataset 위치 적용 (768px 초과)
+            if (window.innerWidth > 768) {
+                const topVal = parseInt($pop.dataset.top, 10);
+                const leftVal = parseInt($pop.dataset.left, 10);
+                const widthVal = parseInt($pop.dataset.width, 10);
+
+                if (!isNaN(topVal)) $pop.style.top = `${topVal}px`;
+                if (!isNaN(leftVal)) $pop.style.left = `${leftVal}px`;
+                // 기존 코드의 leftVal 오타 수정
+                if (!isNaN(widthVal)) $pop.style.width = `${widthVal}px`; 
+            }
+        }
+
+   
+        const $closeBtn = $pop.querySelector('.oneup-pop-close');
+        const $todayCheck = $pop.querySelector('.oneup-pop-today');
+
+    
+        const oneupClosePopup = () => {
+            $pop.style.display = 'none';
+            activePopupCount--;
+
+            if (activePopupCount <= 0) {
+                $wrapper.style.display = 'none';
+            }
+        };
+
+   
+        if ($closeBtn) {
+            $closeBtn.addEventListener('click', () => {
+                if ($todayCheck && $todayCheck.checked) {
+                    oneupSetCookie(`oneup_pop_${safePopId}`, 'true', 24);
+                }
+                oneupClosePopup();
+            });
+        }
+
+   
+        if ($todayCheck) {
+            $todayCheck.addEventListener('change', (e) => {
+                // 체크박스가 선택된 상태라면
+                if (e.target.checked) {
+                    // 쿠키를 즉시 설정
+                    oneupSetCookie(`oneup_pop_${safePopId}`, 'true', 24);
+                    
+                    setTimeout(() => {
+                        oneupClosePopup();
+                    }, 150);
+                }
+            });
+        }
+    });
+
+    if (activePopupCount > 0) {
+        $wrapper.style.display = 'block';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', oneupInitPopups);
